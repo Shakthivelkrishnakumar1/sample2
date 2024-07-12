@@ -8,10 +8,13 @@ import { Observable } from 'rxjs';
 export class DataService {
 
   private apiUrl = 'https://63ad81dada81ba97619ef936.mockapi.io/api/v1/users';
-
+  private apiUrlCompanies = 'https://63ad81dada81ba97619ef936.mockapi.io/api/v1/company';
   constructor(private http: HttpClient) { }
 
   getAllUsers(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl);
+  }
+  getAllCompanies(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrlCompanies);
   }
 }

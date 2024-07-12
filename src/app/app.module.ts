@@ -11,13 +11,17 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { AllUsersComponent } from './all-users/all-users.component';
+import { ListComponent } from './list/list.component';
+import { AllCompaniesComponent } from './all-companies/all-companies.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchComponent,
-    AllUsersComponent
+    AllUsersComponent,
+    ListComponent,
+    AllCompaniesComponent
   ],
   imports: [
     BrowserModule,
