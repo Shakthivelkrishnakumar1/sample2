@@ -7,11 +7,14 @@ import { AllUsersComponent } from './all-users/all-users.component';
 
 const routes: Routes = [ 
   { path: 'search', component: SearchComponent },
-  { path: 'allUsers', component: AllUsersComponent },
+  // { path: 'allUsers', component: AllUsersComponent },
  
-  { path: 'list', component: ListComponent },
-  { path: 'companies', component: AllCompaniesComponent },
-
+  // { path: 'list', component: ListComponent },
+  // { path: 'companies', component: AllCompaniesComponent },
+  { path: 'list', component: ListComponent, children: [
+    { path: 'users', component: AllUsersComponent },
+    { path: 'companies', component: AllCompaniesComponent }
+  ]},
   { path: '', redirectTo: '/search', pathMatch: 'full' },
   { path: '**', redirectTo: '/search' }, // Handle any other route
   

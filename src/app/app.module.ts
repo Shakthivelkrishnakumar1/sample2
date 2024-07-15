@@ -13,6 +13,7 @@ import { RouterModule } from '@angular/router';
 import { AllUsersComponent } from './all-users/all-users.component';
 import { ListComponent } from './list/list.component';
 import { AllCompaniesComponent } from './all-companies/all-companies.component';
+import { IngestUserComponent } from './ingest-user/ingest-user.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { AllCompaniesComponent } from './all-companies/all-companies.component';
     SearchComponent,
     AllUsersComponent,
     ListComponent,
-    AllCompaniesComponent
+    AllCompaniesComponent,
+    IngestUserComponent
   ],
   imports: [
     BrowserModule,

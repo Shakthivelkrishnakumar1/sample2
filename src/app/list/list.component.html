@@ -2,8 +2,8 @@
   <h2 class="text-center">Select List to View</h2>
   <div class="d-flex justify-content-center mb-3">
     <div class="btn-group">
-      <button class="btn btn-primary" routerLink="/allUsers">View Users</button>
-      <button class="btn btn-secondary" routerLink="/companies">View Companies</button>
+      <button class="btn" [routerLink]="['users']" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">View Users</button>
+      <button class="btn" [routerLink]="['companies']" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">View Companies</button>
     </div>
   </div>
   <router-outlet></router-outlet>
