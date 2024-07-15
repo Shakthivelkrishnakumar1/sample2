@@ -1,0 +1,54 @@
+<div class="container mt-3">
+    <h2 class="text-center">Update Company</h2>
+    
+    <!-- Company ID Input Form -->
+    <form (ngSubmit)="searchCompany()" #companyForm="ngForm">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" [(ngModel)]="companyId" name="companyId" placeholder="Enter Company ID" required>
+        <button class="btn btn-primary" type="submit">Search</button>
+      </div>
+    </form>
+    
+    <!-- Display Company Details if Found -->
+    <div *ngIf="companyData.companyName" class="card mb-3">
+      <div class="card-header">
+        <h3>Company Details</h3>
+      </div>
+      <div class="card-body">
+        <p><strong>Company Name:</strong> {{ companyData.companyName }}</p>
+        <p><strong>Company Location:</strong> {{ companyData.companyLocation }}</p>
+        <p><strong>Started On:</strong> {{ companyData.startedOn | date }}</p>
+      </div>
+    </div>
+    
+    <!-- Update Company Form -->
+    <div *ngIf="companyData.companyName" class="card">
+      <div class="card-header">
+        <h3>Update Company</h3>
+      </div>
+      <div class="card-body">
+        <form (ngSubmit)="updateCompany()" #updateForm="ngForm">
+          <div class="form-group">
+            <label for="companyName">Company Name</label>
+            <input type="text" class="form-control" id="companyName" name="companyName" [(ngModel)]="companyData.companyName" required>
+          </div>
+          <div class="form-group">
+            <label for="companyLocation">Company Location</label>
+            <input type="text" class="form-control" id="companyLocation" name="companyLocation" [(ngModel)]="companyData.companyLocation" required>
+          </div>
+          <div class="form-group">
+            <label for="startedOn">Started On</label>
+            <input type="date" class="form-control" id="startedOn" name="startedOn" [(ngModel)]="companyData.startedOn" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Update Company</button>
+          <button type="button" class="btn btn-secondary ml-2 float-right" (click)="goToUpdateCompanyBox()">Back to Update Company</button>
+        </form>
+      </div>
+    </div>
+  
+    <!-- Success Message -->
+    <div *ngIf="updateSuccess" class="alert alert-success mt-3">
+      Company details successfully updated!
+    </div>
+  </div>
+  

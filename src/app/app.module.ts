@@ -16,6 +16,12 @@ import { AllCompaniesComponent } from './all-companies/all-companies.component';
 import { IngestUserComponent } from './ingest-user/ingest-user.component';
 import { IngestCompanyComponent } from './ingest-company/ingest-company.component';
 import { IngestComponent } from './ingest/ingest.component';
+import { UpdateUserComponent } from './update-user/update-user.component';
+import { UpdateCompanyComponent } from './update-company/update-company.component';
+import { DeleteUserComponent } from './delete-user/delete-user.component';
+import { DeleteCompanyComponent } from './delete-company/delete-company.component';
+import { DeleteComponent } from './delete/delete.component';
+import { UpdateComponent } from './update/update.component';
 
 
 
@@ -29,6 +35,12 @@ import { IngestComponent } from './ingest/ingest.component';
     IngestUserComponent,
     IngestCompanyComponent,
     IngestComponent,
+    UpdateUserComponent,
+    UpdateCompanyComponent,
+    DeleteUserComponent,
+    DeleteCompanyComponent,
+    DeleteComponent,
+    UpdateComponent,
 
   ],
   imports: [

@@ -7,6 +7,12 @@ import { AllUsersComponent } from './all-users/all-users.component';
 import { IngestComponent } from './ingest/ingest.component';
 import { IngestUserComponent } from './ingest-user/ingest-user.component';
 import { IngestCompanyComponent } from './ingest-company/ingest-company.component';
+import { UpdateUserComponent } from './update-user/update-user.component';
+import { UpdateCompanyComponent } from './update-company/update-company.component';
+import { DeleteUserComponent } from './delete-user/delete-user.component';
+import { DeleteCompanyComponent } from './delete-company/delete-company.component';
+import { DeleteComponent } from './delete/delete.component';
+import { UpdateComponent } from './update/update.component';
 const routes: Routes = [ 
   { path: 'search', component: SearchComponent },
   // { path: 'allUsers', component: AllUsersComponent },
@@ -25,10 +31,26 @@ const routes: Routes = [
       { path: 'ingest-company', component: IngestCompanyComponent }
     ]
   },
-  // { path: 'ingest-user', component: IngestUserComponent },
+  { 
+    path: 'update', component: UpdateComponent,
+    children: [
+      { path: 'update-user', component: UpdateUserComponent },
+      { path: 'update-company', component: UpdateCompanyComponent }
+    ]
+  },
+  // { path: 'update-user', component: UpdateUserComponent },
+  // { path: 'update-company', component: UpdateCompanyComponent },
+  { 
+    path: 'delete', component: DeleteComponent,
+    children: [
+      { path: 'delete-user', component: DeleteUserComponent },
+      { path: 'delete-company', component: DeleteCompanyComponent }
+    ]
+  },
   // { path: 'ingest-company', component: IngestCompanyComponent },
-  { path: '', redirectTo: '/search', pathMatch: 'full' },
+  { path: '', redirectTo: '/list', pathMatch: 'full' },
   { path: '**', redirectTo: '/search' }, // Handle any other route
+  
   
 ];
 

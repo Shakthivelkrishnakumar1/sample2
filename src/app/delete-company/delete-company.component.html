@@ -1,0 +1,42 @@
+<div class="container mt-3">
+    <h2 class="text-center">Delete Company</h2>
+    
+    <!-- Company ID Input Form -->
+    <form *ngIf="!deleteSuccess" (ngSubmit)="searchCompany()" #companyForm="ngForm">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" [(ngModel)]="companyId" name="companyId" placeholder="Enter Company ID" required>
+        <button class="btn btn-primary" type="submit">Search</button>
+      </div>
+    </form>
+  
+    <!-- Display Company Details if Found -->
+    <div *ngIf="companyProfile" class="card mb-3">
+      <div class="card-header">
+        <h3>Company Details</h3>
+      </div>
+      <div class="card-body">
+        <p><strong>Name:</strong> {{ companyProfile.companyName }}</p>
+        <p><strong>Location:</strong> {{ companyProfile.companyLocation }}</p>
+        <p><strong>Started On:</strong> {{ companyProfile.startedOn }}</p>
+      </div>
+    </div>
+  
+    <!-- Error Message if Company Not Found -->
+    <div *ngIf="companyNotFound" class="alert alert-danger">
+      Company not found. Please enter a valid Company ID.
+    </div>
+  
+    <!-- Delete Company Button -->
+    <div *ngIf="companyProfile" class="card">
+      <div class="card-body text-center">
+        <button class="btn btn-danger" (click)="deleteCompany()">Delete Company</button>
+      </div>
+    </div>
+  
+    <!-- Success Message -->
+    <div *ngIf="deleteSuccess" class="alert alert-success mt-3">
+      Company successfully deleted!
+      <button type="button" class="btn btn-secondary float-right" (click)="goToDeleteCompanyBox()">Back to Delete Company</button>
+    </div>
+  </div>
+  

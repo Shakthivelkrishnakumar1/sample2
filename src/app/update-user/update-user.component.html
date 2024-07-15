@@ -1,0 +1,57 @@
+<div class="container mt-3">
+  <h2 class="text-center">Update User</h2>
+  
+  <!-- User ID Input Form -->
+  <form (ngSubmit)="searchUser()" #userForm="ngForm">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" [(ngModel)]="userId" name="userId" placeholder="Enter User ID" required>
+      <button class="btn btn-primary" type="submit">Search</button>
+    </div>
+  </form>
+  
+  <!-- Display User Details if Found -->
+  <div *ngIf="userProfile" class="card mb-3">
+    <div class="card-header">
+      <h3>User Details</h3>
+    </div>
+    <div class="card-body">
+      <p><strong>Name:</strong> {{ userProfile.firstName }} {{ userProfile.lastName }}</p>
+      <p><strong>Email:</strong> {{ userProfile.email }}</p>
+      <p><strong>Company:</strong> {{ userProfile.companyName }}</p>
+      <p><strong>Insured Amount:</strong> {{ userProfile.insuredAmount }}</p>
+      <p><strong>Location:</strong> {{ userProfile.userLocation }}</p>
+      <p><strong>Avatar:</strong></p>
+      <img [src]="userProfile.avatar" alt="Avatar" class="img-thumbnail" width="100" height="100">
+    </div>
+  </div>
+  
+  <!-- Update User Form -->
+  <div *ngIf="userProfile" class="card">
+    <div class="card-header">
+      <h3>Update User</h3>
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="updateUser()" #updateForm="ngForm">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" class="form-control" id="firstName" name="firstName" [(ngModel)]="userProfile.firstName" required>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="userProfile.lastName" required>
+        </div>
+        <div class="form-group">
+          <label for="avatar">Avatar URL</label>
+          <input type="text" class="form-control" id="avatar" name="avatar" [(ngModel)]="userProfile.avatar" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Update User</button>
+        <button type="button" class="btn btn-secondary ml-2 float-right" (click)="goToUpdateUserBox()">Back to Update User</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Success Message -->
+  <div *ngIf="updateSuccess" class="alert alert-success mt-3">
+    User details successfully updated!
+  </div>
+</div>

@@ -1,0 +1,33 @@
+
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .btn-group {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .btn {
+    margin-right: 10px;
+    border: 2px solid #6c757d; 
+  }
+  
+  .btn.active-link {
+    background-color: blue;
+    color: white;
+    border-color: blue;
+  }
+  
+  .btn:focus {
+    outline: none;
+  }
+  
