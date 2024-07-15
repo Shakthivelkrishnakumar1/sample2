@@ -10,7 +10,7 @@
   </form>
   
   <!-- Display User Details if Found -->
-  <div *ngIf="userProfile" class="card mb-3">
+  <div *ngIf="userProfile && !userNotFound" class="card mb-3">
     <div class="card-header">
       <h3>User Details</h3>
     </div>
@@ -25,8 +25,13 @@
     </div>
   </div>
   
+  <!-- User Not Found Message -->
+  <div *ngIf="userNotFound" class="alert alert-warning mt-3" style="background-color: rgb(236, 95, 95);">
+    User with ID {{ userId }} not found.
+  </div>
+
   <!-- Update User Form -->
-  <div *ngIf="userProfile" class="card">
+  <div *ngIf="userProfile && !userNotFound" class="card">
     <div class="card-header">
       <h3>Update User</h3>
     </div>

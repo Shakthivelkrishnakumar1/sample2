@@ -1,16 +1,22 @@
 <div class="container mt-3">
-    <h2 class="text-center">Update Company</h2>
-    
-    <!-- Company ID Input Form -->
-    <form (ngSubmit)="searchCompany()" #companyForm="ngForm">
-      <div class="input-group mb-3">
-        <input type="text" class="form-control" [(ngModel)]="companyId" name="companyId" placeholder="Enter Company ID" required>
-        <button class="btn btn-primary" type="submit">Search</button>
-      </div>
-    </form>
-    
+  <h2 class="text-center">Update Company</h2>
+  
+  <!-- Company ID Input Form -->
+  <form (ngSubmit)="searchCompany()" #companyForm="ngForm">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" [(ngModel)]="companyId" name="companyId" placeholder="Enter Company ID" required>
+      <button class="btn btn-primary" type="submit">Search</button>
+    </div>
+  </form>
+  
+  <!-- Display Company Details or Not Found Message -->
+  <div *ngIf="companyNotFound" class="alert alert-danger mt-3">
+    Company with ID {{ companyId }} not found.
+  </div>
+
+  <div *ngIf="!companyNotFound && showCompanyForm">
     <!-- Display Company Details if Found -->
-    <div *ngIf="companyData.companyName" class="card mb-3">
+    <div class="card mb-3">
       <div class="card-header">
         <h3>Company Details</h3>
       </div>
@@ -22,7 +28,7 @@
     </div>
     
     <!-- Update Company Form -->
-    <div *ngIf="companyData.companyName" class="card">
+    <div class="card">
       <div class="card-header">
         <h3>Update Company</h3>
       </div>
@@ -45,10 +51,10 @@
         </form>
       </div>
     </div>
-  
-    <!-- Success Message -->
-    <div *ngIf="updateSuccess" class="alert alert-success mt-3">
-      Company details successfully updated!
-    </div>
   </div>
-  
+
+  <!-- Success Message -->
+  <div *ngIf="updateSuccess" class="alert alert-success mt-3">
+    Company details successfully updated!
+  </div>
+</div>

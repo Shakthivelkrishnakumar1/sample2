@@ -11,6 +11,7 @@ export class UpdateUserComponent implements OnInit {
   userId: string = '';
   userProfile: any;
   updateSuccess: boolean = false;
+  userNotFound: boolean = false;
 
   constructor(private route: ActivatedRoute, private dataService: DataService) { }
 
@@ -24,9 +25,17 @@ export class UpdateUserComponent implements OnInit {
   }
 
   searchUser() {
-    this.dataService.getUserById(this.userId).subscribe((data: any) => {
-      this.userProfile = data;
-    });
+    this.dataService.getUserById(this.userId).subscribe(
+      (data: any) => {
+        this.userProfile = data;
+        this.userNotFound = false; // Reset user not found message
+      },
+      (error) => {
+        console.error('Error loading user details:', error);
+        this.userProfile = null;
+        this.userNotFound = true; // Set user not found message
+      }
+    );
   }
 
   updateUser() {
@@ -40,5 +49,6 @@ export class UpdateUserComponent implements OnInit {
     this.updateSuccess = false;
     this.userProfile = null; // Clear user profile data
     this.userId = ''; // Clear user ID
+    this.userNotFound = false; // Reset user not found message
   }
 }

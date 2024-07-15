@@ -33,6 +33,7 @@ export class DeleteCompanyComponent {
       () => {
         this.deleteSuccess = true;
         this.companyProfile = null;
+        this.companyNotFound = false; // Reset company not found message
       },
       (error) => {
         console.error('Error deleting company:', error);
@@ -44,5 +45,6 @@ export class DeleteCompanyComponent {
     this.deleteSuccess = false;
     this.companyId = '';
     this.companyProfile = null;
+    this.companyNotFound = false; // Reset company not found message
   }
 }

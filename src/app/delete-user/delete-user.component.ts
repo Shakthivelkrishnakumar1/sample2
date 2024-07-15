@@ -33,6 +33,7 @@ export class DeleteUserComponent {
       () => {
         this.deleteSuccess = true;
         this.userProfile = null;
+        this.userNotFound = false; // Reset user not found message
       },
       (error) => {
         console.error('Error deleting user:', error);
@@ -44,5 +45,6 @@ export class DeleteUserComponent {
     this.deleteSuccess = false;
     this.userId = '';
     this.userProfile = null;
+    this.userNotFound = false; // Reset user not found message
   }
 }

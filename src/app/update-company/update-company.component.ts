@@ -16,6 +16,7 @@ export class UpdateCompanyComponent {
   };
   updateSuccess: boolean = false;
   showCompanyForm: boolean = false;
+  companyNotFound: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -25,12 +26,19 @@ export class UpdateCompanyComponent {
   searchCompany() {
     this.dataService.getCompanyById(this.companyId).subscribe(
       (company: Company) => {
-        this.companyData = company;
-        this.showCompanyForm = true;
+        if (company) {
+          this.companyData = company;
+          this.showCompanyForm = true;
+          this.companyNotFound = false;
+        } else {
+          this.companyNotFound = true;
+          this.showCompanyForm = false;
+        }
       },
       (error) => {
         console.error('Error loading company details:', error);
         this.showCompanyForm = false;
+        this.companyNotFound = true;
       }
     );
   }
@@ -40,6 +48,7 @@ export class UpdateCompanyComponent {
       () => {
         this.updateSuccess = true;
         this.showCompanyForm = false;
+        this.companyNotFound = false;
       },
       (error) => {
         console.error('Error updating company:', error);
@@ -56,5 +65,6 @@ export class UpdateCompanyComponent {
       startedOn: ''
     };
     this.showCompanyForm = false;
+    this.companyNotFound = false;
   }
 }
