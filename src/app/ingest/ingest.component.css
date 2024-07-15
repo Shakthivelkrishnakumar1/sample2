@@ -5,7 +5,7 @@
   color: white;
 }
 
-.btn-group .btn.active, .btn-group .btn:focus {
+.btn-group .btn.active {
   background-color: blue; 
   color: white;
   border: 2px solid blue; /* Highlight the outline of the active button */

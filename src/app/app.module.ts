@@ -14,6 +14,9 @@ import { AllUsersComponent } from './all-users/all-users.component';
 import { ListComponent } from './list/list.component';
 import { AllCompaniesComponent } from './all-companies/all-companies.component';
 import { IngestUserComponent } from './ingest-user/ingest-user.component';
+import { IngestCompanyComponent } from './ingest-company/ingest-company.component';
+import { IngestComponent } from './ingest/ingest.component';
+
 
 
 @NgModule({
@@ -23,7 +26,10 @@ import { IngestUserComponent } from './ingest-user/ingest-user.component';
     AllUsersComponent,
     ListComponent,
     AllCompaniesComponent,
-    IngestUserComponent
+    IngestUserComponent,
+    IngestCompanyComponent,
+    IngestComponent,
+
   ],
   imports: [
     BrowserModule,

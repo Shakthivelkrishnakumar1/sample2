@@ -1,0 +1,11 @@
+<div class="container mt-3">
+    <h2 class="text-center">Select Option to Ingest</h2>
+    <div class="d-flex justify-content-center mb-3">
+      <div class="btn-group">
+        <button class="btn" routerLink="ingest-user" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Ingest User</button>
+        <button class="btn" routerLink="ingest-company" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Ingest Company</button>
+      </div>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+  

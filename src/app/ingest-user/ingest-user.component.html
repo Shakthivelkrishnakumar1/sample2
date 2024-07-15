@@ -1,1 +1,117 @@
-<p>ingest-user works!</p>
+<div class="container mt-3">
+    <h2 class="text-center">Ingest New User</h2>
+    <form (ngSubmit)="onSubmit()" #userForm="ngForm" novalidate>
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input
+          type="text"
+          id="firstName"
+          class="form-control"
+          required
+          [(ngModel)]="user.firstName"
+          name="firstName"
+          #firstName="ngModel"
+        />
+        <div *ngIf="submitted && firstName.invalid" class="text-danger">
+          First Name is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input
+          type="text"
+          id="lastName"
+          class="form-control"
+          required
+          [(ngModel)]="user.lastName"
+          name="lastName"
+          #lastName="ngModel"
+        />
+        <div *ngIf="submitted && lastName.invalid" class="text-danger">
+          Last Name is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          class="form-control"
+          required
+          [(ngModel)]="user.email"
+          name="email"
+          #email="ngModel"
+        />
+        <div *ngIf="submitted && email.invalid" class="text-danger">
+          Valid Email is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="companyName">Company Name</label>
+        <input
+          type="text"
+          id="companyName"
+          class="form-control"
+          required
+          [(ngModel)]="user.companyName"
+          name="companyName"
+          #companyName="ngModel"
+        />
+        <div *ngIf="submitted && companyName.invalid" class="text-danger">
+          Company Name is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="insuredAmount">Insured Amount</label>
+        <input
+          type="number"
+          id="insuredAmount"
+          class="form-control"
+          required
+          [(ngModel)]="user.insuredAmount"
+          name="insuredAmount"
+          #insuredAmount="ngModel"
+        />
+        <div *ngIf="submitted && insuredAmount.invalid" class="text-danger">
+          Insured Amount is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="userLocation">Location</label>
+        <input
+          type="text"
+          id="userLocation"
+          class="form-control"
+          required
+          [(ngModel)]="user.userLocation"
+          name="userLocation"
+          #userLocation="ngModel"
+        />
+        <div *ngIf="submitted && userLocation.invalid" class="text-danger">
+          Location is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="avatar">Avatar URL</label>
+        <input
+          type="text"
+          id="avatar"
+          class="form-control"
+          required
+          [(ngModel)]="user.avatar"
+          name="avatar"
+          #avatar="ngModel"
+        />
+        <div *ngIf="submitted && avatar.invalid" class="text-danger">
+          Avatar URL is required.
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid">
+        Submit
+      </button>
+    </form>
+    <div *ngIf="successMessage" class="alert alert-success mt-3">
+      {{ successMessage }}
+    </div>
+  </div>
+  
